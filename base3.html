@@ -1,0 +1,56 @@
+<pre id=D>
+<script>
+onkeydown = e => {
+  /*
+  ArrowRight 1
+  ArrowLeft -1
+  */
+  //K = e.keyCode - 38 /// 1, -1
+  //K = e.which - 38 /// 1, -1
+  
+  //K="     L R".indexOf(e.key[5]||" ")-6
+  K=e.which-38 // shortest
+  //K=parseInt(e.key[5]||6,28)/3-8 // not deprecated
+  console.log(K, e)
+  //K=(e.key[5].charCodeAt(0)-79)/3
+  //K=e.key[7].charCodeAt(0)*2-205
+  //K="L R".indexOf(e.key[5])-1
+  //console.log(" L R".indexOf(e.key[5]||" ")-2);
+  console.log(parseInt(e.key[5]||6,28)/3-8);
+  //console.log(e.key[7].charCodeAt(0)*2-205, (e.key[5].charCodeAt(0)-79)/3); // R=82, L=76
+  //console.log(e.key[6].charCodeAt(0)/2-51.5, (e.key[5].charCodeAt(0)-79)/3); // R=82, L=76
+  //console.log(e.key[5].charCodeAt(0)/3-26.3); // R=82, L=76
+};
+let B = A = 12;
+let Z = X = [A]; // Z 画面 0:none 1:block
+let h = K = t = P = 0;
+Y = () => {
+  for (C = [q = c = i = 4]; f = i-- * K; c -= !Z[h + (K + 6 ? p + K : C[i] = p * A - (p / 9 | 0) * 145)]) {
+    p = B[i];
+  }
+  console.log(c, K + 6, Z)
+  // t=0 のときだけ回転しない
+  for (c ? 0 : K + 6 ? h += K : /*t*/1 ? B = C : 0; i = K = q--; f += Z[A + p]) {
+    k = X[p = h + B[q]] = 1;
+  }
+  h += A;
+  if (f | B) {
+    /*
+      B: block
+      // ブロックの作成 
+      // 中心からの差分で配置する。棒を除くすべてのブロックはＬ字にブロックがあり、
+    */
+    const t2 = (Math.random() * 7) >> 0; // 次のブロック
+    t++;
+    for (Z = X, X = [l = 228], B = [[-7, -20, 6, h = 17, -9, 3, 3][t2] - 4, 0, 1, t2 - 6 ? - A : 2]; l--;) {
+      for (l % A ? l -= l % A * !Z[l] : (P += k++, c = l += A); --c > A;) {
+        Z[c] = Z[c - A]; // c行消去
+      }
+    }
+  }
+  for (S = ""; i < 240; S += X[i] | (X[i] = Z[i] |= ++i % A < 2 | i > 228) ? i % A ? "■" : "■\n" : "＿");
+  D.innerHTML = S + P;
+  Z[5] || setTimeout(Y, i - P)
+}
+Y();
+</script>

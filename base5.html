@@ -1,0 +1,65 @@
+<pre id=D>
+<script>
+onkeydown = e => {
+  /*
+  ArrowRight 1
+  ArrowLeft -1
+  */
+  //K = e.keyCode - 38 /// 1, -1
+  //K = e.which - 38 /// 1, -1
+  
+  //K="     L R".indexOf(e.key[5]||" ")-6
+  K=e.which-38 // shortest
+  //K=parseInt(e.key[5]||6,28)/3-8 // not deprecated
+  //console.log(K, e)
+  //K=(e.key[5].charCodeAt(0)-79)/3
+  //K=e.key[7].charCodeAt(0)*2-205
+  //K="L R".indexOf(e.key[5])-1
+  //console.log(" L R".indexOf(e.key[5]||" ")-2);
+ // console.log(parseInt(e.key[5]||6,28)/3-8);
+  //console.log(e.key[7].charCodeAt(0)*2-205, (e.key[5].charCodeAt(0)-79)/3); // R=82, L=76
+  //console.log(e.key[6].charCodeAt(0)/2-51.5, (e.key[5].charCodeAt(0)-79)/3); // R=82, L=76
+  //console.log(e.key[5].charCodeAt(0)/3-26.3); // R=82, L=76
+};
+let A = B = 12; // A:横幅
+let Z = X = [A]; // Z 画面 0:none 1:block, X ブロック位置->ブロック含めた画面
+let h = K = t = P = 0; // h:block_xy t:block, K:keycode, P:point
+Y = () => {
+  // ブロック移動＆回転
+  for (C = [q = c = i = 4]; f = i-- * K; c -= !Z[h + (K + 6 ? p + K : C[i] = p * A - (p / 9 | 0) * 145)]) {
+    p = B[i];
+    console.log(p);
+  }
+  c ? 0 : K + 6 ? h += K : B = C
+  //if(!c)K + 6 ? h += K : B = C
+  for (; i = K = q--; f += Z[A + p]) {
+    k = X[p = h + B[q]] = 1; // ブロックをおく, k:ポイント加算用に1を入れる
+  }
+  h += A; // 1行落とす
+  t++;
+  if (f | B) {
+  //f|B?0:(
+    /*
+      B: block
+      // ブロックの作成 
+      // 中心からの差分で配置する。棒を除くすべてのブロックはＬ字にブロックがあり、
+    */
+    t %= 7
+    Z = X
+    X = [l = 228]
+    B = [[-7, -20, 6, h = 17, -9, 3, 3][t] - 4, 0, 1, t - 6 ? - A : 2]
+    while (l--) {
+      l % A ? l -= l % A * !Z[l] : (P++, c = l += A)
+      while (--c > A) {
+        Z[c] = Z[c - A]; // c行消去
+      }
+    }
+  }
+  //for (S = ""; i < 240; S += X[i] | (X[i] = Z[i] |= ++i % A < 2 | i > 228) ? i % A ? "■" : "■\n" : "＿");
+  for (S = ""; i < 240; S += X[i] | (X[i] = Z[i] |= ++i % A < 2 | i > 228) ? i % A ? "■" : "■\n" : "＿");
+  D.innerHTML = S + P;
+  //Z[5] || setTimeout(Y, i - P)
+  setTimeout(Y, i - P) // ゲームオーバー処理省略
+}
+Y();
+</script>
