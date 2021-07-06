@@ -2,7 +2,7 @@
 
 https://user-images.githubusercontent.com/1715217/124520458-86b48380-de27-11eb-8a21-39c17e5f4a7b.mp4
 
-- https://taisukef.github.io/tet-puzzle/6lines_modern_simplescore.html
+- https://taisukef.github.io/tet-puzzle/
 - https://fukuno.jig.jp/3267
 
 ## 6 lines program in JavaScript
